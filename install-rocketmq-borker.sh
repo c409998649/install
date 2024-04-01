@@ -60,7 +60,7 @@ storePathCommitLog=/tmp/rmqstore/node00/commitlog
 enableDLegerCommitLog=true
 dLegerGroup=RaftNode00
 dLegerPeers=$newDLegerPeers
-dLegerSelfId=n0
+dLegerSelfId=n${num}
 deleteWhen=04
 fileReservedTime = 48
 brokerRole = ASYNC_MASTER
@@ -81,13 +81,13 @@ echo $borkerConf > "/usr/local/rocketmq/conf/dledger/broker-n${num}.conf"
 echo "rocketmq安装完毕"
 
 echo "配置内容"
-echo "请输入cpu:(4)"
+echo "请输入运行内存:(4)"
 read cpu
 if [ -z "$cpu" ]; then
   cpu="4"
 fi
-echo "你输入的cpu值为:$cpu"
-echo "请输入内存:(4)g"
+echo "你输入的运行内存值为:$cpu"
+echo "请输入最大内存:(4)g"
 read memory
 if [ -z "$memory" ]; then
   memory="4"
