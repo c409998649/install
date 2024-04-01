@@ -1,9 +1,9 @@
 #!/bin/bash
 # rocketmq版本号
-echo "请输入rocketmq版本号:(5.2.0)"
+echo "请输入rocketmq版本号:($version)"
 read version
 if [ -z "$version" ]; then
-  version="5.2.0"
+  version="0"
 fi
 echo "你输入的rocketmq版本号值为:$version"
 # 集群号
@@ -55,8 +55,8 @@ brokerName=RaftNode00
 listenPort=$port
 ## 设置的NameServer地址和端口
 namesrvAddr=$namesrvAddr
-storePathRootDir=/tmp/rmqstore/node0${num}
-storePathCommitLog=/tmp/rmqstore/node0${num}/commitlog
+storePathRootDir=/tmp/rmqstore/node00
+storePathCommitLog=/tmp/rmqstore/node00/commitlog
 enableDLegerCommitLog=true
 dLegerGroup=RaftNode00
 dLegerPeers=$newDLegerPeers
@@ -94,12 +94,12 @@ if [ -z "$memory" ]; then
 fi
 echo "你输入的内存值为:$memory"
 sed -i "s/Xms8g/Xms${cpu}g/g" /usr/local/rocketmq/bin/runbroker.sh
-sed -i "s/Xmx8g/Xms${memory}g/g" /usr/local/rocketmq/bin/runbroker.sh
+sed -i "s/Xmx8g/Xmx${memory}g/g" /usr/local/rocketmq/bin/runbroker.sh
 
-echo "开始写入启动文件rocketmqbroker.service"
+echo "开始写入启动文件rocketmqname.service"
 startConf="
 [Unit]
-Description=rocketmq-broker
+Description=rocketmq-nameserver
 Documentation=http://mirror.bit.edu.cn/apache/rocketmq/
 After=network.target
 
@@ -114,7 +114,7 @@ LimitNOFILE=65536
 
 [Install]
 WantedBy=multi-user.target"
-echo $startConf |sudo tee /lib/systemd/system/rocketmqbroker.service >/dev/null
+echo $startConf |sudo tee -a /lib/systemd/system/rocketmqbroker.service >/dev/null
 
 # 启动
 sudo systemctl start rocketmqbroker
