@@ -97,8 +97,7 @@ sed -i "s/Xms8g/Xms${cpu}g/g" /usr/local/rocketmq/bin/runbroker.sh
 sed -i "s/Xmx8g/Xmx${memory}g/g" /usr/local/rocketmq/bin/runbroker.sh
 
 echo "开始写入启动文件rocketmqname.service"
-startConf="
-[Unit]
+startConf="[Unit]
 Description=rocketmq-nameserver
 Documentation=http://mirror.bit.edu.cn/apache/rocketmq/
 After=network.target
