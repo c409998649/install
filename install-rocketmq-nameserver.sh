@@ -11,7 +11,6 @@ sudo wget -c https://dist.apache.org/repos/dist/release/rocketmq/$version/rocket
 sudo unzip rocketmq-all-$version-bin-release.zip
 sudo mv rocketmq-all-$version-bin-release /usr/local/rocketmq
 sudo chown -R ec2-user:ec2-user /usr/local/rocketmq/
-echo $borkerConf > "/usr/local/rocketmq/conf/dledger/broker-n${num}.conf"
 echo "rocketmq安装完毕"
 
 echo "配置内容"
