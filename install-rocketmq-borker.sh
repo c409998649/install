@@ -1,9 +1,9 @@
 #!/bin/bash
 # rocketmq版本号
-echo "请输入rocketmq版本号:($version)"
+echo "请输入rocketmq版本号:(5.2.0)"
 read version
 if [ -z "$version" ]; then
-  version="0"
+  version="5.2.0"
 fi
 echo "你输入的rocketmq版本号值为:$version"
 # 集群号
