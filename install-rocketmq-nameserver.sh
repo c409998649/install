@@ -30,9 +30,8 @@ sed -i "s/Xms4g/Xms${cpu}g/g" /usr/local/rocketmq/bin/runserver.sh
 sed -i "s/Xmx4g/Xms${memory}g/g" /usr/local/rocketmq/bin/runserver.sh
 
 echo "开始写入启动文件rocketmqname.service"
-startConf="
-[Unit]
-Description=rocketmq-nameservern
+startConf="[Unit]
+Description=rocketmq-nameserver
 Documentation=http://mirror.bit.edu.cn/apache/rocketmq/
 After=network.target
 
@@ -47,7 +46,7 @@ LimitNOFILE=65536
 
 [Install]
 WantedBy=multi-user.target"
-echo -e $startConf |sudo tee -a /lib/systemd/system/rocketmqname.service >/dev/null
+echo "$startConf" |sudo tee -a /lib/systemd/system/rocketmqname.service >/dev/null
 
 # 启动
 sudo systemctl start rocketmqname
