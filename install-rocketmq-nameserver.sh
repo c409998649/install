@@ -46,7 +46,7 @@ LimitNOFILE=65536
 
 [Install]
 WantedBy=multi-user.target"
-echo "$startConf" |sudo tee -a /lib/systemd/system/rocketmqname.service >/dev/null
+echo "$startConf" |sudo tee /lib/systemd/system/rocketmqname.service >/dev/null
 
 # 启动
 sudo systemctl start rocketmqname
