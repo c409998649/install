@@ -96,10 +96,10 @@ echo "你输入的内存值为:$memory"
 sed -i "s/Xms8g/Xms${cpu}g/g" /usr/local/rocketmq/bin/runbroker.sh
 sed -i "s/Xmx8g/Xms${memory}g/g" /usr/local/rocketmq/bin/runbroker.sh
 
-echo "开始写入启动文件rocketmqname.service"
+echo "开始写入启动文件rocketmqbroker.service"
 startConf="
 [Unit]
-Description=rocketmq-nameserver
+Description=rocketmq-broker
 Documentation=http://mirror.bit.edu.cn/apache/rocketmq/
 After=network.target
 
