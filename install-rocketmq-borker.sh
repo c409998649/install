@@ -14,10 +14,10 @@ if [ -z "$num" ]; then
 fi
 echo "你输入的集群号值为:$num"
 # 端口号
-echo "请输入端口:(30911)"
+echo "请输入端口:(309${num}1)"
 read port
 if [ -z "$port" ]; then
-  port="30911"
+  port="309${num}1"
 fi
 echo "你输入的端口值为:$port"
 # namerserver地址
