@@ -27,7 +27,7 @@ if [ -z "$memory" ]; then
 fi
 echo "你输入的内存值为:$memory"
 sed -i "s/Xms4g/Xms${cpu}g/g" /usr/local/rocketmq/bin/runserver.sh
-sed -i "s/Xmx4g/Xms${memory}g/g" /usr/local/rocketmq/bin/runserver.sh
+sed -i "s/Xmx4g/Xmx${memory}g/g" /usr/local/rocketmq/bin/runserver.sh
 
 echo "开始写入启动文件rocketmqname.service"
 startConf="[Unit]
