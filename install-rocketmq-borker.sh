@@ -55,8 +55,8 @@ brokerName=RaftNode00
 listenPort=$port
 ## 设置的NameServer地址和端口
 namesrvAddr=$namesrvAddr
-storePathRootDir=/tmp/rmqstore/node00
-storePathCommitLog=/tmp/rmqstore/node00/commitlog
+storePathRootDir=/tmp/rmqstore/node0${num}
+storePathCommitLog=/tmp/rmqstore/node0${num}/commitlog
 enableDLegerCommitLog=true
 dLegerGroup=RaftNode00
 dLegerPeers=$newDLegerPeers
